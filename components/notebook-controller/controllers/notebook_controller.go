@@ -48,6 +48,7 @@ import (
 )
 
 const DefaultContainerPort = 8888
+const DefaultAirflowPort = 8080
 const DefaultServingPort = 80
 const AnnotationRewriteURI = "notebooks.kubeflow.org/http-rewrite-uri"
 const AnnotationHeadersRequestSet = "notebooks.kubeflow.org/http-headers-request-set"
@@ -352,10 +353,17 @@ func setPrefixEnvVar(instance *v1beta1.Notebook, container *corev1.Container) {
 		}
 	}
 
+
 	container.Env = append(container.Env, corev1.EnvVar{
 		Name:  PrefixEnvVar,
 		Value: prefix,
-	})
+	},
+	corev1.EnvVar{
+		Name:  "AIRFLOW__WEBSERVER__BASE_URL",
+		Value: prefix+"/airflow",
+	},
+
+	)
 }
 
 func generateStatefulSet(instance *v1beta1.Notebook) *appsv1.StatefulSet {
@@ -415,6 +423,11 @@ func generateStatefulSet(instance *v1beta1.Notebook) *appsv1.StatefulSet {
 				Name:          "notebook-port",
 				Protocol:      "TCP",
 			},
+			{
+				ContainerPort: DefaultAirflowPort,
+				Name:          "airflow-port",
+				Protocol:      "TCP",
+			},
 		}
 	}
 
@@ -456,6 +469,13 @@ func generateService(instance *v1beta1.Notebook) *corev1.Service {
 					Name:       "http-" + instance.Name,
 					Port:       DefaultServingPort,
 					TargetPort: intstr.FromInt(port),
+					Protocol:   "TCP",
+				},
+				{
+					// Make port name follow Istio pattern so it can be managed by istio rbac
+					Name:       "http-" + "airflow",
+					Port:       DefaultAirflowPort,
+					TargetPort: intstr.FromInt(DefaultAirflowPort),
 					Protocol:   "TCP",
 				},
 			},
@@ -526,6 +546,30 @@ func generateVirtualService(instance *v1beta1.Notebook) (*unstructured.Unstructu
 
 	// the http section of the istio VirtualService spec
 	http := []interface{}{
+		map[string]interface{}{
+			"headers": map[string]interface{}{
+				"request": map[string]interface{}{
+					"set": headersRequestSetInterface,
+				},
+			},
+			"match": []interface{}{
+				map[string]interface{}{
+					"uri": map[string]interface{}{
+						"prefix": prefix+"/airflow/",
+					},
+				},
+			},
+			"route": []interface{}{
+				map[string]interface{}{
+					"destination": map[string]interface{}{
+						"host": service,
+						"port": map[string]interface{}{
+							"number": int64(DefaultAirflowPort),
+						},
+					},
+				},
+			},
+		},
 		map[string]interface{}{
 			"headers": map[string]interface{}{
 				"request": map[string]interface{}{

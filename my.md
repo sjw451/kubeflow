@@ -24,7 +24,8 @@ chmod +x kubebuilder && mv kubebuilder /usr/local/bin/
 
 
 ## image build & push
-make docker-build docker-push IMG=sjw451/notebook-controller:v1.8.0-rc.0
+cd kubeflow/components/notebook-controller
+make docker-build docker-push IMG=sjw451/notebook-controller TAG=v1.8.0-rc.0
 
 ** docker.io/kubeflownotebookswg/notebook-controller
 
