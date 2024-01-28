@@ -555,7 +555,7 @@ func generateVirtualService(instance *v1beta1.Notebook) (*unstructured.Unstructu
 			"match": []interface{}{
 				map[string]interface{}{
 					"uri": map[string]interface{}{
-						"prefix": prefix+"/airflow/",
+						"prefix": prefix+"airflow/",
 					},
 				},
 			},
