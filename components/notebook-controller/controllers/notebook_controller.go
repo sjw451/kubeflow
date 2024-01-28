@@ -360,7 +360,7 @@ func setPrefixEnvVar(instance *v1beta1.Notebook, container *corev1.Container) {
 	},
 	corev1.EnvVar{
 		Name:  "AIRFLOW__WEBSERVER__BASE_URL",
-		Value: prefix+"/airflow",
+		Value: "http://0.0.0.0:8080"+prefix+"/airflow",
 	},
 
 	)
