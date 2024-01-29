@@ -5,7 +5,7 @@
    viewBox="0 0 130 32"
    version="1.1"
    id="svg1"
-   sodipodi:docname="logo2.svg"
+   sodipodi:docname="logo.svg"
    inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
@@ -24,14 +24,14 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#505050"
      inkscape:zoom="7.6095568"
-     inkscape:cx="70.766276"
-     inkscape:cy="16.492419"
+     inkscape:cx="59.201871"
+     inkscape:cy="12.155767"
      inkscape:window-width="1920"
      inkscape:window-height="1017"
      inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
-     inkscape:current-layer="Group-14" />
+     inkscape:current-layer="collapsed-nav/expanded" />
   <!-- Generator: Sketch 52.2 (67145) - http://www.bohemiancoding.com/sketch -->
   <title
      id="title1">Kubeflow Logo</title>
@@ -89,7 +89,7 @@
        transform="translate(-24,-20)">
       <g
          id="Group-14"
-         transform="matrix(1,0,0,1.0768016,-17.101911,11.821268)">
+         transform="translate(7.3410372,19.519439)">
         <text
            xml:space="preserve"
            transform="translate(8)"
@@ -97,7 +97,7 @@
            style="white-space:pre;shape-inside:url(#rect1);fill:#000000"><tspan
              x="38.191406"
              y="34.551479"
-             id="tspan4">R</tspan></text>
+             id="tspan5">R</tspan></text>
         <text
            xml:space="preserve"
            style="fill:#000000"
@@ -115,19 +115,16 @@
            style="white-space:pre;shape-inside:url(#rect3);fill:#000000" />
         <text
            xml:space="preserve"
-           style="font-size:15.4189px;white-space:pre;inline-size:130.867;fill:#ffffff;stroke-width:2.529"
-           x="87.929314"
-           y="25.350822"
+           style="font-size:30.3482px;fill:#ffffff;stroke-width:2.529"
+           x="48.633533"
+           y="25.582861"
            id="text4"
-           transform="matrix(0.9506638,0,0,1.0518966,-40.86966,0.12204077)"><tspan
-             x="87.929314"
-             y="25.350822"
-             id="tspan7"><tspan
-               style="font-weight:bold;font-family:Corbel;-inkscape-font-specification:'Corbel Bold';text-align:center;text-anchor:middle"
-               id="tspan5">RISE</tspan><tspan
-               style="font-weight:bold;font-size:14.134px;font-family:Corbel;-inkscape-font-specification:'Corbel Bold'"
-               id="tspan6"> Playground 
-</tspan></tspan></text>
+           transform="scale(0.95066382,1.0518966)"><tspan
+             id="tspan4"
+             x="48.633533"
+             y="25.582861"
+             sodipodi:role="line"
+             style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:'Gmarket Sans TTF';-inkscape-font-specification:'Gmarket Sans TTF Bold';fill:#ffffff;stroke-width:2.529">RISE</tspan></text>
         <text
            xml:space="preserve"
            transform="translate(8)"
@@ -142,7 +139,7 @@
     </g>
   </g>
   <metadata
-     id="metadata29">
+     id="metadata27">
     <rdf:RDF>
       <cc:Work
          rdf:about="">

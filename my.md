@@ -22,6 +22,7 @@ containerd.io제외
 curl -L -o kubebuilder "https://go.kubebuilder.io/dl/latest/$(go env GOOS)/$(go env GOARCH)"
 chmod +x kubebuilder && mv kubebuilder /usr/local/bin/
 
+# notebook-controller
 
 ## image build & push
 cd kubeflow/components/notebook-controller
@@ -30,6 +31,18 @@ make docker-build docker-push IMG=sjw451/notebook-controller TAG=v1.8.0-rc.0
 ** docker.io/kubeflownotebookswg/notebook-controller
 
 :tagname
+## deploy to the  cluster
+
+kubectl port-forward --address 0.0.0.0 svc/istio-ingressgateway -n istio-system 
+user@example.com
+12341234
+
+
+## image build & push
+cd kubeflow/components/notebook-controller
+make docker-build docker-push IMG=sjw451/notebook-controller TAG=v1.8.0-rc.0
+
+
 ## deploy to the  cluster
 
 kubectl port-forward --address 0.0.0.0 svc/istio-ingressgateway -n istio-system 
