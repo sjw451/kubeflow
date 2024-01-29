@@ -32,3 +32,6 @@ make docker-build docker-push IMG=sjw451/notebook-controller TAG=v1.8.0-rc.0
 :tagname
 ## deploy to the  cluster
 
+kubectl port-forward --address 0.0.0.0 svc/istio-ingressgateway -n istio-system 
+user@example.com
+12341234
